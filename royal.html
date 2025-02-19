@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Royal Retreat</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f5f0;
+            color: #3c3b3b;
+        }
+        header {
+            background: linear-gradient(90deg, #b39f6a, #8d6e63);
+            color: #fff;
+            padding: 20px 10px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3em;
+            margin: 0;
+            font-weight: bold;
+        }
+        header p {
+            font-size: 1.2em;
+            margin: 5px 0;
+        }
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        /* Carousel Styles */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-images img {
+            width: 100%;
+            border: 5px solid #b39f6a;
+        }
+        .carousel-buttons {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            transform: translateY(-50%);
+        }
+        .carousel-buttons button {
+            background: rgba(0, 0, 0, 0.5);
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .carousel-buttons button:hover {
+            background: #b39f6a;
+        }
+        /* Section Styles */
+        .details {
+            margin: 20px 0;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .details h2 {
+            font-size: 2em;
+            color: #8d6e63;
+        }
+        .details p {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+        footer {
+            background: #8d6e63;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Royal Retreat</h1>
+        <p>Experience Regal Luxury</p>
+    </header>
+    
+    <div class="container">
+        <!-- Carousel -->
+        <div class="carousel" id="carousel">
+            <div class="carousel-images">
+                <img src="fort2.jpg" alt="Royal Hall">
+                <img src="fort3.jpg" alt="Luxurious Room">
+                <img src="image3.jpg" alt="Elegant Dining">
+            </div>
+            <div class="carousel-buttons">
+                <button id="prev"></button>
+                <button id="next"></button>
+            </div>
+        </div>
+
+        <!-- Details Section -->
+        <div class="details">
+            <h2>About the Royal Retreat</h2>
+            Rajasthan is home to opulent heritage hotels, many of which were once royal palaces or forts. Some famous ones include:</li>
+            <li>Umaid Bhawan Palace (Jodhpur): A stunning blend of Indo-Saracenic and Art Deco styles.</li>
+              <li> Palace (Jaipur): Once the residence of Jaipur’s Maharaja.</li>
+              <li>Lake Palace (Udaipur): A luxury hotel located on an island in Lake Pichola.</li>
+          
+      <h4>2. Palaces and Forts</h4>
+
+          <li>The state is adorned with grand palaces and forts that showcase its regal past:</li>
+              <li>Amber Fort (Jaipur): Known for its artistic Hindu-Muslim architecture.</li>
+              <li>Mehrangarh Fort (Jodhpur): A massive fort with panoramic views of the city.</li>
+              <li>City Palace (Udaipur): A lakeside palace with intricate architecture.</li>
+      
+      <h4>3. Cultural Experiences</h4>
+          <li>Cuisine: Enjoy royal dishes like Dal Baati Churma, Gatte ki Sabzi, and sweets like Ghevar.</li>
+          <li>Folk Performances: Witness Rajasthani music, dances like Ghoomar, and puppet shows.</li>
+          <li>Safaris: Experience the golden sand dunes of Jaisalmer.</li>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Royal Retreat. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const carousel = document.querySelector('.carousel-images');
+        const images = document.querySelectorAll('.carousel-images img');
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+        let index = 0;
+
+        function showImage(idx) {
+            const width = images[0].clientWidth;
+            carousel.style.transform = translateX(${-idx * width}px);
+        }
+
+        prev.addEventListener('click', () => {
+            index = (index > 0) ? index - 1 : images.length - 1;
+            showImage(index);
+        });
+
+        next.addEventListener('click', () => {
+            index = (index < images.length - 1) ? index + 1 : 0;
+            showImage(index);
+        });
+
+        // Auto-slide every 5 seconds
+        setInterval(() => {
+            next.click();
+        }, 5000);
+    </script>
+</body>
+</html>

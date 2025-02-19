@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Desert Safari Experience</title>
+  <style>
+    /* Basic styles for a desert theme */
+    body {
+      font-family: 'Arial, sans-serif';
+      background-color: #f4e4c1;
+      margin: 0;
+      padding: 0;
+      color: #3b2f25;
+    }
+    header {
+      background-color: #d1a76c;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    header h1 {
+      margin: 0;
+      color: #fff;
+    }
+    .carousel {
+      position: relative;
+      max-width: 80%;
+      margin: 30px auto;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .carousel-images {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+    .carousel-images img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .carousel-buttons {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    .carousel-buttons button {
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    .carousel-buttons button:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+    .details-section {
+      max-width: 80%;
+      margin: 20px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .details-section h2 {
+      margin-top: 0;
+      color: #d1793e;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      background: #d1a76c;
+      color: white;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Desert Safari Adventure</h1>
+</header>
+
+<!-- Carousel Slideshow -->
+<div class="carousel" id="carousel">
+  <div class="carousel-images" id="carouselImages">
+    <img src="tent2.jpg" alt="Desert Safari View">
+    <img src="tent.jpg" alt="Camel Ride in the Desert">
+    <img src="tent2.jpg" alt="Sunset in the Desert">
+    <img src="tent 3.webp" alt="Luxury Desert Camps">
+  </div>
+  <div class="carousel-buttons">
+    <button id="prevBtn">&lt;</button>
+    <button id="nextBtn">&gt;</button>
+  </div>
+</div>
+
+<!-- Details Section -->
+<div class="details-section">
+  <h2>Experience the Magic of the Desert</h2>
+  <p>
+    Embark on an unforgettable desert safari experience. Explore the golden sands of the desert, ride camels, and enjoy thrilling dune bashing. Witness stunning sunsets, savor traditional Rajasthani cuisine, and relax in luxurious desert camps under the starry skies.
+  </p>
+  <p>
+    Whether you're looking for adventure or tranquility, the desert safari offers a unique combination of both. Don't miss the mesmerizing cultural performances, including traditional folk dances and music, that add a royal touch to the experience.
+  </p>
+</div>
+
+<footer>
+  <p>© 2024 Desert Safari Adventures. All Rights Reserved.</p>
+</footer>
+
+<script>
+  // Carousel functionality
+  const carousel = document.getElementById('carouselImages');
+  const prevBtn = document.getElementById('prevBtn');
+  const nextBtn = document.getElementById('nextBtn');
+
+  let index = 0;
+
+  function showSlide(direction) {
+    const totalImages = carousel.children.length;
+    if (direction === 'next') {
+      index = (index + 1) % totalImages;
+    } else if (direction === 'prev') {
+      index = (index - 1 + totalImages) % totalImages;
+    }
+    carousel.style.transform = translateX(-${index * 100}%);
+  }
+
+  prevBtn.addEventListener('click', () => showSlide('prev'));
+  nextBtn.addEventListener('click', () => showSlide('next'));
+</script>
+
+</body>
+</html>

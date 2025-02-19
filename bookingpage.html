@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desert Safari Booking</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #f7d794, #e77f67);
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            padding: 50px 20px;
+        }
+        .header {
+            background: url('https://source.unsplash.com/1600x900/?desert') no-repeat center center/cover;
+            height: 300px;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-shadow: 2px 2px 5px #000;
+        }
+        .header h1 {
+            font-size: 3rem;
+        }
+        .form-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        .form-container h2 {
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .form-group textarea {
+            resize: none;
+            height: 80px;
+        }
+        .book-now-btn {
+            background-color: #e77f67;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.3s ease;
+        }
+        .book-now-btn:hover {
+            background-color: #cf6a5e;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>Desert Safari Booking</h1>
+    </div>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Book Your Desert Safari</h2>
+            <form id="safariForm">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date:</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="groupSize">Group Size:</label>
+                    <input type="number" id="groupSize" name="groupSize" placeholder="Enter number of people" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Additional Details:</label>
+                    <textarea id="message" name="message" placeholder="Any specific requirements or notes"></textarea>
+                </div>
+                <button type="button" class="book-now-btn" onclick="redirectToWhatsApp()">Book Now</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function redirectToWhatsApp() {
+            // Collect form data
+            const name = document.getElementById('name').value;
+            const date = document.getElementById('date').value;
+            const groupSize = document.getElementById('groupSize').value;
+            const message = document.getElementById('message').value;
+
+            // Construct WhatsApp message
+            const whatsappMessage = `Hello, I would like to book a Desert Safari.%0A%0A` +
+                `Name: ${name}%0A` +
+                `Preferred Date: ${date}%0A` +
+                `Group Size: ${groupSize}%0A` +
+                `Additional Details: ${message}`;
+
+            // Replace 'YOUR_PHONE_NUMBER' with the actual WhatsApp number
+            const whatsappNumber = '6376691214'; 
+            const whatsappURL = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+            // Redirect to WhatsApp
+            window.open(whatsappURL, '_blank');
+        }
+    </script>
+
+</body>
+</html>
